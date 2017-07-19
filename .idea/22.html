@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+       <div>
+           <p>111</p>
+           <li>222</li>
+           <div>333</div>
+       </div>
+       <h1>你爱好的运动是？</h1>
+       <input type="checkbox" name="hobby">足球
+       <input type="checkbox" name="hobby">篮球
+       <input type="checkbox" name="hobby">排球
+       <input type="checkbox" name="hobby">乒乓球
+       <br>
+       <button id="check-all">全选</button>
+       <button id="check-no">全不选</button>
+       <button id="check-reverse">反选</button>
+
+       <script src="jquery-1.11.2.js"></script>
+</body>
+
+<script>
+    function siblings(elem){
+        var element=elem.parentNode.children;
+        var arr=[];
+        for(i=0;i<element.length;i++){
+            if(element[i]!=elem){
+                arr.push(element[i]);
+            }
+        }
+
+    }
+    function after(elem,newNode){
+        var newElem = elem.nextSibling
+        if(newElem){
+            elem.parentNode.insertBefore()
+        }else{
+            newElem.parentNode.appendChild
+        }
+
+    }
+    $(function(){
+        $("#top").on("click", function(){
+            var timer = setInterval(function(){
+                var iScrollTop = $("body").scrollTop();
+                if(iScrollTop <= 0){
+                    clearInterval(timer);
+                }
+                $("body").scrollTop(iScrollTop-=50);
+            }, 100);
+        });
+    });
+    $(function () {
+        var $hobby = $("input[name = hobby]");
+        $("#check-all").on("click", function () {
+            $hobby.prop("checked", true);
+        })
+        $("#check-no").on("click",function(){
+            $hobby.prop("checked", false);
+        })
+        $("#check-reverse").on("click",function(){
+            $hobby.each(function(index,elem){
+                this.checked = !this.checked;
+            })
+
+        })
+
+
+    } )
+    $(function(){
+        $("#top").on("click", function () {
+            var $("#top").
+
+
+        })
+
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</html>

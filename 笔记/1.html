@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+.split("")  分割字符串
+<script>
+    var re=new RegExp();     对象
+    /正则表达式/
+            标准写法
+    var reg = new RegExp()
+    reg.exec(字符串)  正则表达式执行   结果是数组
+
+
+
+    function getbyclass(className,context){
+        context= context||document;
+      var result=[]
+        var arr=context.getElementsByTagName("*")
+        var re=new RegExp("\\b"+className+"\\b")
+        for(i=0;i<arr.length;i++){
+            if(re.test(arr[i].className)){
+                result.push(arr[i])
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+    }
+
+    //原型
+.prototype.属性=function(){
+
+    }
+
+当你定义一个函数的时候。将属性放在构造函数中。方法放在原型里
+
+
+
+
+    function $(selector,context){
+        context = context||document;
+        switch (selector.charAt(0)){
+            case'#':
+                return [document.getElementById('selector.substring(1)')]
+                break;
+            case'.':
+                return getbyclass(selector.substring(1),context)
+                break;
+            default:
+                return context.getElementsByTagName('selector')
+                break;
+        }
+
+
+
+    }
+
+    function getByClass(className, context){
+        var  a=[];
+        var arr= context.getElementsByTagName("*")
+        var  re =new RegExp("\\b"+className+"\\b")
+        for(i=0;i<arr.length;i++){
+            if(re.text(arr[i].className)){
+                a.push(arr[i])
+            }
+            return a;
+        }
+    }
+
+
+
+
+function next(elem){
+    do{
+       elem= elem&&elem.nextSibling;
+    } while(elem&&elem.nodeType!=1);
+    return elem;
+}
+
+function first(elem){
+    elem=elem&&elem.firstChild;
+    return elem  && elem.nodeType==1? elem :next(elem);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+  <!--原生对象=》jq对象   $()-->
+  <!--jq对象=》原生对象  [0]  或 get（0）-->
+<!--onkeyup  获取到输入框中的内容-->
+<!--onkeydown   获取到输入框中的前一个状态的内容-->
+<script>
+    $(function(){
+        $("#top").on("click",function(){
+            var timer=setInterval(function(){
+                var aa=$("body").scrollTop();
+                if(aa<0){
+                    clearInterval(timer)
+                }else{
+                    $("body").scrollTop(aa-=50)
+                }
+
+            },100);
+
+
+        });
+});
+
+css3
+    webkit
+    moz
+    ms
+    o
+
+
+    css.doyoe.com
+
+    hover ie早期版本只支持给a加。其他的不行：
+    ::first-line/letter  伪对象选择器   并不是真正存在的
+    after，before插入的是行级元素
+
+
+     white-space:nowrap
+    overflow:hidden
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
