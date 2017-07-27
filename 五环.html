@@ -12,8 +12,64 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            border: 10px solid ;
+            border: 10px;
             position: absolute;
+        }
+        .circle::after{
+            content: "";
+        }
+        .blue{
+            border: 10px solid blue;
+        }
+        .blue.circle::after{
+            border: 10px solid blue;
+            left: -10px;
+            top: -10px;
+            z-index: 1;
+            border-bottom-color: transparent;
+        }
+        .black{
+            border: 10px solid black;
+            left: 240px;
+            top: 0;
+        }
+        .black.circle::after{
+            border: 10px solid black;
+            left: -10px;
+            top: -10px;
+            z-index: 2;
+            border-left-color: transparent;
+        }
+        .red{
+            border: 10px solid red;
+            left: 480px;
+            top: 0;
+        }
+        .red.circle::after{
+            border: 10px solid red;
+            left: -10px;
+            top: -10px;
+        }
+
+        .yellow{
+            border: 10px solid yellow;
+            left: 120px;
+            top: 120px;
+        }
+        .yellow.circle::after{
+            border: 10px solid yellow;
+            left: -10px;
+            top: -10px;
+        }
+        .green{
+            border: 10px solid green;
+            left: 360px;
+            top: 120px;
+        }
+        .green.circle::after{
+            border: 10px solid green;
+            left: -10px;
+            top: -10px;
         }
 
     </style>

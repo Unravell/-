@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    //语义化标签
+    <header></header>
+    <nav></nav>
+    <footer></footer>
+    <article></article>
+    <aside></aside>  侧栏
+
+    下拉菜单，自动筛选
+    <input type="text" list="list"/>  list指向id的名字
+    <datalist id="list" >
+        <option>aa</option>
+        <option>bb</option>
+        <option>cc</option>
+        <option>dd</option>
+    </datalist>
+
+    <dialog>弹出框</dialog>
+    <section>章，节  类似于p</section>
+    html5shiv.js   解决新标签兼容性
+    css normalize   css重置
+    
+视频播放不了，转化标准格式，
+    <video src=""></video>
+    <audio src=""></audio>
+
+
+    .classname    返回的是字符串
+    .classlist()    返回的是一个对象
+    .classlist.add()        添加
+    .classlist.remove()     移除
+    .classlist.toggle()     切换
+
+    json：javascript object natation    http;//json.org  下载json2.js  解决兼容性文体
+    前后台传值用的
+    var str=JSON.stringify(obj1);   把对象转化成字符串
+    var str=JSON.parse(obj1);       把字符串转化成对象
+
+
+  //xml
+    也是传值
+    <user>
+        <username>zhangsan</username>
+        <age>18</age>
+        <school>nongda</school>
+    </user>
+
+
+    eval()  函数  解析任何字符串    不安全的
+    JSON.parse   解析json格式的字符串    安全的
+
+    //校验json 格式
+
+深拷贝的两种方式  封装函数  json方式
+
+
+
+.setAttribute("","")  添加属性  attr（）
+.aa     prop()
+    <script>
+//        属性名data-xx
+//        .data("aa")   .data("aaBb") .data("aa-bb")  jQuery用法  取到自定义属性
+//        .dataset.aaBb   html5属性
+
+//        e.preventDefault();阻止默认行为
+//        return false;  阻止默认行为和事件冒泡
+
+        cookie   //4KB  保存在客户端
+
+        //5M
+        localStorage.username=""//存在客户端
+        localStorage.setItem("",);
+        localStorage.removeItem("")//清楚一个
+        localStorage.clear()//清除全部
+
+        sessionStorage.name="zhangsan"  //设置
+        sessionStorage.setItem("age",18)   //过期周期关掉浏览器，存在客户端
+
+        //session 保存在服务端
+
+
+
+
+
+
+
+    </script>
+
+
+    <script defer></script>  异步加载   加载，HTML渲染完成执行
+    <script async></script>  异步加载   加载结束即执行
+    不能使用document。write
+
+    window.onhashchange=function(){//历史管理
+    .innerHTML=obj[location.hash];
+    }
+    history.pushState(arr,"title的值")；
+    window.onpopstate=function(){
+    .innerHTML=e.state;
+    }
+
+
+
+</body>
+</html>

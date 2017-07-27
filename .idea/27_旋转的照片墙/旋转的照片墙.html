@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的照片墙</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            height: 100%;
+            width: 100%;
+        }
+        #container{
+            height: 100%;
+            width: 100%;
+            transition: all 1s ease;
+            background-image: url(img/bg.jpg);
+        }
+        #container .img{
+            width: 125px;
+            height: 125px;
+            border: 5px solid white;
+            -webkit-box-shadow:2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: -200px;
+            top: -200px;
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+
+</div>
+<script>
+    var oContainer = document.getElementById("container")
+    var ROW = 4, COL = 6, NUM = ROW * COL,
+            THUMB_WIDTH = 125, THUMB_HEIGHT = 125,
+            BIG_WIDTH = 750, BIG_HEIGHT = 500
+    var count = 0;
+    var aImg;
+    for(var i=0; i<NUM; i++){
+        var oThumbImg = new Image();
+        oThumbImg.onload = function(){
+            count++;
+            if(count == NUM * 2){
+                loadSuccess();
+            }
+        };
+        oThumbImg.src = "img/thumbs/"+ (i + 1) +".jpg";
+        var oBigImg = new Image();
+        oBigImg.onload = function(){
+            count++;
+            if(count == NUM * 2){
+                loadSuccess();
+            }
+        };
+        oBigImg.src = "img/"+ (i + 1) +".jpg";
+    }
+    var index = 0;
+    function loadSuccess(){
+        for(var i=0;i<ROW;i++){
+            for(var j=0;j<COL;j++){
+                index++;
+                var oDiv = document.createElement("div");
+                oDiv.style.backgroundImage = "url(img/thumbs/"+ index +".jpg)";
+                oDiv.pos = {
+                    row : i,
+                    col : j
+                };
+                oContainer.appendChild(oDiv);
+                oDiv.className="img"
+                oDiv.innerHTML = "<span></span>";
+            }
+        }
+        aImg = document.getElementsByClassName("img");//24个div
+        oImgWidth = aImg[0].offsetWidth;
+        oImgHeight = aImg[0].offsetHeight;
+        fColGap = (oContainer.offsetWidth -  oImgWidth * COL) / (COL + 1);
+        fRorGap = (oContainer.offsetHeight - oImgHeight * ROW) / (ROW + 1);
+        for(var i=23; i >= 0; i--){
+            aImg[i].style.transitionDelay = (NUM - i) * 100 + "ms";
+            aImg[i].style.top = (fRorGap + oImgHeight) * aImg[i].pos.row + fRorGap + "px";
+            aImg[i].style.left = (fColGap + oImgWidth) * aImg[i].pos.col + fColGap + "px";
+            aImg[i].style.transform = "rotate("+ (Math.random() * 40 - 20) +"deg)";
+        }
+    }
+
+    var aflag=true;
+    oContainer.onclick=function(e){
+        if(this=== e.target){
+            return false;
+        }else{
+            if(aflag){
+                for(var i=0;i<24;i++){
+                    aImg[i].style.transitionDelay = "0ms";
+                    aImg[i].style.top =(oContainer.offsetHeight-4*125)/2 +125*aImg[i].pos.row+ "px";
+                    aImg[i].style.left = (oContainer.offsetWidth-6*125)/2 +125*aImg[i].pos.col + "px";
+                    aImg[i].style.transform = "rotate(0)";
+                    aImg[i].style.borderWidth = "1px";
+
+                    var oSpan = aImg[i].getElementsByTagName("span")[0];
+                    oSpan.style.opacity = 1;
+                    var imgURL;
+                    if(e.target.className == "img"){//div
+                        imgURL = e.target.index;
+                    }else{//span
+                        imgURL = e.target.parentNode.index;
+                    }
+                    oSpan.style.backgroundImage = "url(img/"+ imgURL +".jpg)";
+                    oSpan.style.backgroundPosition = -THUMB_WIDTH * aImg[i].pos.col + "px "+ (-THUMB_HEIGHT * aImg[i].pos.row) +"px";
+                    oSpan.style.transitionDelay = "0ms";
+
+                    nowIndex = imgURL;
+
+
+
+                }
+            }else{
+
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

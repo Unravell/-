@@ -159,6 +159,33 @@ css3
      white-space:nowrap
     overflow:hidden
 
+    background-origin   背景原点    开始的位置
+    background-clip   背景裁剪
+    background-clip：text；   按照文本裁剪，镂空样式，颜色设置成透明
+    {background-size:
+    百分比   相对容器的百分比
+    contain 等比例放大到最大
+    cover  完全覆盖，等比例放大到完全覆盖，可能会超出容器}
+
+
+
+    ////标准盒模型         width=content
+    怪异/混杂盒模型   width=content+padding+border    <!DOCTYPE html>删除的时候开启  ie6之前的版本
+    .class{
+       / 弹性盒模型:
+        给父元素设置 display:-websit-box;          变成列
+        -websit-box-flex：占几分就写几
+        分配父元素的剩余空间
+        有内容的时候，宽度设置成0；
+
+
+
+    }
+
+改变this的指向：
+    call   第一个参数改变的this指向   其他是属性和值
+    apply  第一个参数改变的this指向   第二个参数是一个数组，里面是属性和值
+    bind    参数和call指向   ，不会立即调用执行  调用在后面加括号；
 
 
 

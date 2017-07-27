@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            perspective: 1000px;
+            perspective-origin: 50% -300px;
+        }
+        #wrap{
+            position: relative;
+            width: 120px;
+            height: 300px;
+            margin: 200px auto;
+            transform-style: preserve-3d;
+            /*transition: all 1s linear;*/
+            transform:rotateY(0deg)  translateZ(0px);
+        }
+        img{
+            position: absolute;
+            width: 200px;
+            transform:rotateY(30deg)  translateZ(0px);
+            transition: all 1s linear;
+
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <img src="img/1.jpg" alt=""/>
+    <img src="img/2.jpg" alt=""/>
+    <img src="img/3.jpg" alt=""/>
+    <img src="img/4.jpg" alt=""/>
+    <img src="img/5.jpg" alt=""/>
+    <img src="img/6.jpg" alt=""/>
+    <img src="img/7.jpg" alt=""/>
+    <img src="img/8.jpg" alt=""/>
+    <img src="img/9.jpg" alt=""/>
+
+</div>
+<script>
+    var odiv=document.getElementById("wrap");
+    var oimg=odiv.getElementsByTagName("img");
+    setInterval(function(){    for(var i=0;i<9;i++){
+        oimg[i].style.transform="rotateY("+(i+1)*40+"deg) translateZ(300px)";
+    }},1000)
+
+
+</script>
+</body>
+</html>

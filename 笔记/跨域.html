@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+//跨域：同源策略
+1.www.a.com   www.b.com
+2.www.qq.com  news.qq.com    子域
+3.http://192.168.1.100:80    http://192.168.1.100:8080    端口号不同
+4.http://192.168.1.100:80    https://192.168.1.100:80     协议不同
+//cdn 加速
+//src  不存在跨域问题
+
+//jsonp:json padding    跨域方式
+//script标签的src 属性，+？+。。。
+//接收方式 echo.
+
+
+//iframe  iframe标签  src标签    嵌入另一个html文件
+    子可以用parent.xx  调用父HTML的内容
+    也可以用top.xx
+    ？
+
+服务器代理方式
+后端服务器没有跨域问题
+
+
+postmessage
+win.postMessage
+window.onmessage=function(){}
+
+
+
+
+
+
+
+
+<script src="jquery-1.11.2.js"></script>
+<script>
+    $.get("http://www.b.com/index.html",{发送的请求})
+</script>
+</body>
+</html>
