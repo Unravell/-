@@ -1,10 +1,4 @@
-requirejs.config({
-    paths: {
-        jquery: 'jquery-1.11.2'
-    }
-});
-define(["jquery"], function($){
-    //弹出层类
+define(["jquery"],function($){
     function Dialog(settings){
         this.defaulstSettings = {
             width: 500,
@@ -22,7 +16,7 @@ define(["jquery"], function($){
         this.$content = $('<div class="dialog-content"></div>');
     }
     Dialog.prototype.open = function(){
-        this.$container.append(this.$mask).append(this.$box).appendTo(document.body);
+        this.$container.append(this.$mask).append(this.$box)..appendTo(document.body);
         this.$box.append(this.$title).append(this.$content);
         this.$title.append(this.$item).append(this.$close);
         this.$box.css({
@@ -31,19 +25,17 @@ define(["jquery"], function($){
         });
         this.$item.html(this.defaulstSettings.title);
         if(this.defaulstSettings.content.indexOf(".html") != -1){
-            $(this.$content).load(this.defaulstSettings.content);
+            this.$content.load(this.defaulstSettings.content);
         }else{
-            $(this.$content).html(this.defaulstSettings.content);
+            this.$content.html(this.defaulstSettings.content);
         }
-       this.$close.on("click", function(){
-           // this.$container.remove();
+        this.$close.on("click", function(){
             this.close();
-       }.bind(this));
+        }.bind(this));
     };
     Dialog.prototype.close = function(){
         this.$container.remove();
     };
     return Dialog;
 
-
-});
+})
